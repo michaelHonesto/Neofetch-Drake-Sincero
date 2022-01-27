@@ -28,7 +28,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-version=7.1.0
+version=E.3.MJR
 
 # Fallback to a value of '5' for shells which support bash
 # but do not set the 'BASH_' shell variables (osh).
@@ -56,13 +56,11 @@ print_info() {
     info title
     info underline
 
-    info "OS" distro
-    info "Host" model
+    info "OS" SinceroOS
     info "Kernel" kernel
     info "Uptime" uptime
     info "Packages" packages
     info "Shell" shell
-    info "Resolution" resolution
     info "DE" de
     info "WM" wm
     info "WM Theme" wm_theme
@@ -70,8 +68,6 @@ print_info() {
     info "Icons" icons
     info "Terminal" term
     info "Terminal Font" term_font
-    info "CPU" cpu
-    info "GPU" gpu
     info "Memory" memory
 
     # info "GPU Driver" gpu_driver  # Linux/macOS only
@@ -88,17 +84,6 @@ print_info() {
     info cols
 }
 
-# Title
-
-
-# Hide/Show Fully qualified domain name.
-#
-# Default:  'off'
-# Values:   'on', 'off'
-# Flag:     --title_fqdn
-title_fqdn="off"
-
-
 # Kernel
 
 
@@ -107,11 +92,6 @@ title_fqdn="off"
 # Default:  'on'
 # Values:   'on', 'off'
 # Flag:     --kernel_shorthand
-# Supports: Everything except *BSDs (except PacBSD and PC-BSD)
-#
-# Example:
-# on:  '4.8.9-1-ARCH'
-# off: 'Linux 4.8.9-1-ARCH'
 kernel_shorthand="on"
 
 
@@ -126,18 +106,6 @@ kernel_shorthand="on"
 # Supports: Everything except Windows and Haiku
 distro_shorthand="off"
 
-# Show/Hide OS Architecture.
-# Show 'x86_64', 'x86' and etc in 'Distro:' output.
-#
-# Default: 'on'
-# Values:  'on', 'off'
-# Flag:    --os_arch
-#
-# Example:
-# on:  'Arch Linux x86_64'
-# off: 'Arch Linux'
-os_arch="on"
-
 
 # Uptime
 
@@ -146,28 +114,11 @@ os_arch="on"
 #
 # Default: 'on'
 # Values:  'on', 'tiny', 'off'
-# Flag:    --uptime_shorthand
-#
-# Example:
-# on:   '2 days, 10 hours, 3 mins'
-# tiny: '2d 10h 3m'
-# off:  '2 days, 10 hours, 3 minutes'
-uptime_shorthand="on"
+uptime_shorthand="tiny"
 
 
 # Memory
 
-
-# Show memory percentage in output.
-#
-# Default: 'off'
-# Values:  'on', 'off'
-# Flag:    --memory_percent
-#
-# Example:
-# on:   '1801MiB / 7881MiB (22%)'
-# off:  '1801MiB / 7881MiB'
-memory_percent="off"
 
 # Change memory output unit.
 #
@@ -257,7 +208,7 @@ speed_shorthand="off"
 # Example:
 # on:   'Intel i7-6500U'
 # off:  'i7-6500U (4)'
-cpu_brand="on"
+cpu_brand="off"
 
 # CPU Speed
 # Hide/Show CPU speed.
@@ -265,11 +216,7 @@ cpu_brand="on"
 # Default: 'on'
 # Values:  'on', 'off'
 # Flag:    --cpu_speed
-#
-# Example:
-# on:  'Intel i7-6500U (4) @ 3.1GHz'
-# off: 'Intel i7-6500U (4)'
-cpu_speed="on"
+cpu_speed="off"
 
 # CPU Cores
 # Display CPU cores in output
@@ -278,11 +225,6 @@ cpu_speed="on"
 # Values:  'logical', 'physical', 'off'
 # Flag:    --cpu_cores
 # Support: 'physical' doesn't work on BSD.
-#
-# Example:
-# logical:  'Intel i7-6500U (4) @ 3.1GHz' (All virtual cores)
-# physical: 'Intel i7-6500U (2) @ 3.1GHz' (All physical cores)
-# off:      'Intel i7-6500U @ 3.1GHz'
 cpu_cores="logical"
 
 # CPU Temperature
@@ -323,7 +265,7 @@ gpu_brand="on"
 # Values:  'all', 'dedicated', 'integrated'
 # Flag:    --gpu_type
 # Supports: Linux
-#
+
 # Example:
 # all:
 #   GPU1: AMD HD 7950
@@ -338,18 +280,6 @@ gpu_type="all"
 
 
 # Resolution
-
-
-# Display refresh rate next to each monitor
-# Default: 'off'
-# Values:  'on', 'off'
-# Flag:    --refresh_rate
-# Supports: Doesn't work on Windows.
-#
-# Example:
-# on:  '1920x1080 @ 60Hz'
-# off: '1920x1080'
-refresh_rate="off"
 
 
 # Gtk Theme / Icons / Font
@@ -807,7 +737,7 @@ image_source="auto"
 #       openSUSE_Tumbleweed, openSUSE, SwagArch, Tails, Trisquel,
 #       Ubuntu-Cinnamon, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE,
 #       Ubuntu-Studio, Ubuntu, Univention, Venom, Void, VNux, LangitKetujuh, semc,
-#       Obarun, windows10, Windows7, Xubuntu, Zorin, and IRIX have ascii logos.
+#       Obarun, windows10, Windows7, Xubuntu, SinceroOS, and IRIX have ascii logos.
 # NOTE: Arch, Ubuntu, Redhat, Fedora and Dragonfly have 'old' logo variants.
 #       Use '{distro name}_old' to use the old logos.
 # NOTE: Ubuntu has flavor variants.
@@ -5167,7 +5097,7 @@ ASCII:
                                 t2, openSUSE_Tumbleweed, openSUSE, SwagArch, Tails, Trisquel,
                                 Ubuntu-Cinnamon, Ubuntu-Budgie, Ubuntu-GNOME, Ubuntu-MATE,
                                 Ubuntu-Studio, Ubuntu, Univention, Venom, Void, VNux, LangitKetujuh, semc,
-                                Obarun, windows10, Windows7, Xubuntu, Zorin, and IRIX have ascii logos.
+                                Obarun, windows10, Windows7, Xubuntu, SinceroOS, and IRIX have ascii logos.
 
                                 NOTE: Arch, Ubuntu, Redhat, Fedora and Dragonfly have 'old' logo variants.
 
@@ -11348,26 +11278,38 @@ oMMMMmMMMMNds:.+MMMmmMMN/.-odNMMMMmMMMM+
              .odNm+  /dNms.
 EOF
                 ;;
-        "Zorin"*)
+        "SinceroOS"*)
             set_colors 4 6
             read -rd '' ascii_data <<'EOF'
-${c1}        `osssssssssssssssssssso`
-       .osssssssssssssssssssssso.
-      .+oooooooooooooooooooooooo+.
-
-
-  `::::::::::::::::::::::.         .:`
- `+ssssssssssssssssss+:.`     `.:+ssso`
-.ossssssssssssssso/.       `-+ossssssso.
-ssssssssssssso/-`      `-/osssssssssssss
-.ossssssso/-`      .-/ossssssssssssssso.
- `+sss+:.      `.:+ssssssssssssssssss+`
-  `:.         .::::::::::::::::::::::`
-
-
-      .+oooooooooooooooooooooooo+.
-       -osssssssssssssssssssssso-
-        `osssssssssssssssssssso`
+${c1}        ` mhyssyhdNMMMmm
+             NdysyhhhhddhhhsosyyhdN
+           mhyhhddmmmmmmmmmdhhhhdhhhm
+         mhyhhddmmNNNmmmmmmmNNmmdmddhdN
+        hsyhddmmmmddhhhhhhhhhdmmmmmdhhdN
+       dsyhddmdyso+//////+++++oydmmddddd
+       yyhhdds+::--------:::///+shmddmddm
+      dhhhdho:----.-------::://++shddmdddN
+     mddhdds:------------:::///++oyhddmmmm
+    mdddddh/------------::::///++oshddmmmm
+    ddmdmho:------------::::///+++ohdmmmmm
+     dmmmy/---------------:::///++oydmmmmm
+     ddmdo:-----.----------:://+++oohmNNNm
+     Nddd/-------::::::::/+osyhhyyssydmmddN
+      Nhdssyyyhhhhhhhhhhhhhdmmmddhdmdhdmyyd
+       hdhhddhhdmmmmddddmmmmmNNmmdddyohdsos
+       dhyshddhdmmmddosdmmmmdmmmmdddo+ydhss
+       Nyo+syyyhhdddo--ommmdddmmdddy++shysy
+        hs++osssyyho-.-:shdddhddhhho++yysoh
+        m::/+oosss+----://oyssooo++/++sssh
+         +---:/+o+:/o++ossoo+++++++++++oN
+         N/--:+oo+::+ossooooooso+++++++y
+          N+-:/oso+//++ooooooosoo++++++h
+           N/--:/:---:://+++///++++++++h
+            N+----.-:/+oo+////+o+++++oydm
+              h:-:-.--::::::/+oso++oshmmdN
+               N+:/:::::/++osyysooyhmmmmmdN
+                y-:+oooossyhhhyyhdmmmmmmmmmmNN
+             Nms----::///+ossyydmmmmmmmmmmmmmmmmN`
 EOF
         ;;
 
